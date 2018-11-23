@@ -43,6 +43,8 @@ public class Train {
         this.time = time;
     }
 
+    //расчет средней скорости поезда
+
     double averageSpeed (double distance, double fromTime, double toTime) {
         if (toTime > fromTime) {
             return this.distance / (this.toTime - this.fromTime);
@@ -50,9 +52,21 @@ public class Train {
         else return -1;
     }
 
-    double timeLeft(double Time, double fromTime, double toTime) {
+    //расчет оставшегося времени пути поезда
+    double timeLeft(double time, double fromTime, double toTime) {
         return (this.toTime - this.fromTime - this.time);
     }
 
-    info ()
+    //информация о поезде
+    void info () {
+        System.out.println("город отправления: " + this.fromCity );
+        System.out.println("город прибытия: " + this.toCity );
+        System.out.println("количество вагонов: " + this.vagons );
+        System.out.println("расстояние пути: " + this.distance + " км" );
+        System.out.println("время отбытия: " + this.fromTime + " ч");
+        System.out.println("время прибытия: " + this.toTime  + " ч");
+        System.out.println("в пути: " + this.time  + " ч");
+        System.out.println("средняя скорость: " + this.averageSpeed (this.distance, this.fromTime, this.toTime)  + " км/ч");
+        System.out.println("время до прибытия: " + this.timeLeft(this.time, this.fromTime, this.toTime)  + " ч");
+    }
 }
